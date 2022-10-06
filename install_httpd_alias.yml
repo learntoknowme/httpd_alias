@@ -1,0 +1,9 @@
+---
+- name: Add Apache alias
+  hosts: prod
+  become: yes
+  tasks:
+    - name: Copy alias file
+      copy:
+        src: alias.conf
+        dest: /etc/httpd/conf.d
