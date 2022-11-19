@@ -7,3 +7,10 @@
       copy:
         src: alias.conf
         dest: /etc/httpd/conf.d
+      notify: restart apache
+  handlers:
+    - name: Update the service
+      service:
+        name: httpd
+        state: restarted
+      listen: restart apache
